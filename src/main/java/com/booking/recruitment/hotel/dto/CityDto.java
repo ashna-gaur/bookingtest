@@ -6,8 +6,7 @@ public class CityDto {
     private Double cityCentrelongitude;
     private Double cityCentrelatitude;
 
-    public CityDto() {}
-
+    // Constructor with all arguments
     public CityDto(int id, String name, Double cityCentrelongitude, Double cityCentrelatitude) {
         this.id = id;
         this.name = name;
@@ -34,6 +33,20 @@ public class CityDto {
     }
 
     // Getter and Setter methods for cityCentrelongitude
-    public Double getCityCentrelongitude()
+    public Double getCityCentrelongitude() {
+        return cityCentrelongitude;
+    }
 
+    public void setCityCentrelongitude(Double cityCentrelongitude) {
+        this.cityCentrelongitude = cityCentrelongitude;
+    }
+
+    // Getter and Setter methods for cityCentrelatitude
+    public Double getCityCentrelatitude() {
+        return cityCentrelatitude;
+    }
+
+    public void setCityCentrelatitude(Double cityCentrelatitude) {
+        this.cityCentrelatitude = cityCentrelatitude;
+    }
 }

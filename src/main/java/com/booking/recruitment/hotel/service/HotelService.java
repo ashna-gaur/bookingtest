@@ -13,5 +13,5 @@ public interface HotelService {
 
   Hotel createNewHotel(Hotel hotel);
 
-  public void deleteHotelById(int id)
+  public void deleteHotelById(int id);
 }
