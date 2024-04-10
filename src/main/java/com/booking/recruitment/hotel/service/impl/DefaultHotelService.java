@@ -8,6 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.booking.recruitment.hotel.dto.HotelDto;
 import com.booking.recruitment.hotel.dto.CityDto;
+import com.example.exceptions.ElementNotFoundException;
+import java.lang.IllegalArgumentException;
+
+
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -31,7 +35,7 @@ class DefaultHotelService implements HotelService {
     Hotel hotel =  hotelRepository
     .findById(id)
     .orElseThrow(() -> new ElementNotFoundException("Could not find hotel with ID provided"));
-    CityDto cityDto = new CityDto(hotel.getCity().getId(), hotel.getCity().getName(), hotel.getCity().getCityCentreLongitude(),hotel.getCity().setCityCentreLatitude());
+    CityDto cityDto = new CityDto(hotel.getCity().getId(), hotel.getCity().getName(), hotel.getCity().getCityCentreLongitude(),hotel.getCity().getCityCentreLatitude());
     return new HotelDto(hotel.getId(),hotel.getName(), hotel.getRating(),
     hotel.getLongitude(), hotel.getLatitude(), hotel.getAddress(),cityDto);
 

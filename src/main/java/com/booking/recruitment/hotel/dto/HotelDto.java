@@ -9,7 +9,7 @@ public class HotelDto {
   private Double longitude;
   private Double latitude;
   private String address;
-  private CityDto CityDto;
+  private CityDto cityDto;
 
   public HotelDto() {}
 
