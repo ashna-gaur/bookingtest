@@ -1,5 +1,7 @@
 package com.booking.recruitment.hotel.dto;
 
+import com.booking.recruitment.hotel.dto.CityDto;
+
 public class HotelDto {
     private int id;
     private String name;

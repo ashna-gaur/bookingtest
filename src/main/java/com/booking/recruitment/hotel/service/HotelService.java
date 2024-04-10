@@ -1,6 +1,8 @@
 package com.booking.recruitment.hotel.service;
 
+
 import com.booking.recruitment.hotel.model.Hotel;
+import com.booking.recruitment.hotel.dto.HotelDto;
 
 import java.util.List;
 
