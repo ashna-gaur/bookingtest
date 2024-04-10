@@ -1,13 +1,13 @@
 package com.booking.recruitment.hotel.dto;
 
 public class CityDto {
-    private int id;
+    private Long id;
     private String name;
     private Double cityCentrelongitude;
     private Double cityCentrelatitude;
 
     // Constructor with all arguments
-    public CityDto(int id, String name, Double cityCentrelongitude, Double cityCentrelatitude) {
+    public CityDto(Long id, String name, Double cityCentrelongitude, Double cityCentrelatitude) {
         this.id = id;
         this.name = name;
         this.cityCentrelongitude = cityCentrelongitude;
@@ -15,7 +15,7 @@ public class CityDto {
     }
 
     // Getter and Setter methods for id
-    public int getId() {
+    public Long getId() {
         return id;
     }
 

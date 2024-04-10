@@ -8,8 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.booking.recruitment.hotel.dto.HotelDto;
 import com.booking.recruitment.hotel.dto.CityDto;
-import com.example.exceptions.ElementNotFoundException;
 import java.lang.IllegalArgumentException;
+import java.util.Optional;
 
 
 
@@ -32,12 +32,15 @@ class DefaultHotelService implements HotelService {
 
   @Override
   public HotelDto getHotelById(Long id) {
-    Hotel hotel =  hotelRepository
-    .findById(id)
-    .orElseThrow(() -> new ElementNotFoundException("Could not find hotel with ID provided"));
-    CityDto cityDto = new CityDto(hotel.getCity().getId(), hotel.getCity().getName(), hotel.getCity().getCityCentreLongitude(),hotel.getCity().getCityCentreLatitude());
+    Optional<Hotel> optionalHotel = hotelRepository.findById(id);
+        if (optionalHotel.isPresent()) {
+            Hotel hotel = optionalHotel.get();
+            CityDto cityDto = new CityDto(hotel.getCity().getId(), hotel.getCity().getName(), hotel.getCity().getCityCentreLongitude(),hotel.getCity().getCityCentreLatitude());
     return new HotelDto(hotel.getId(),hotel.getName(), hotel.getRating(),
     hotel.getLongitude(), hotel.getLatitude(), hotel.getAddress(),cityDto);
+        } else {
+            throw new IllegalArgumentException("Hotel with ID " + id + " not found");
+        }
 
   }
 

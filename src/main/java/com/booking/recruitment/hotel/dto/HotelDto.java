@@ -3,7 +3,7 @@ package com.booking.recruitment.hotel.dto;
 import com.booking.recruitment.hotel.dto.CityDto;
 
 public class HotelDto {
-    private int id;
+    private Long id;
     private String name;
   private Double rating;
   private Double longitude;
@@ -13,7 +13,7 @@ public class HotelDto {
 
   public HotelDto() {}
 
-  public HotelDto(int id, String name, Double rating, Double longitude, Double latitude, String address, CityDto cityDto) {
+  public HotelDto(Long id, String name, Double rating, Double longitude, Double latitude, String address, CityDto cityDto) {
         this.id = id;
         this.name = name;
         this.rating = rating;
@@ -23,7 +23,7 @@ public class HotelDto {
         this.cityDto = cityDto;
     }
 
-  public int getId() {
+  public Long getId() {
         return id;
     }
 
@@ -76,7 +76,7 @@ public class HotelDto {
         this.address = address;
     }
 
-    public String getCityDto() {
+    public CityDto getCityDto() {
         return cityDto;
     }
 
