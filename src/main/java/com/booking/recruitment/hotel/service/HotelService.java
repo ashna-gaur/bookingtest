@@ -12,4 +12,6 @@ public interface HotelService {
   List<Hotel> getHotelsByCity(Long cityId);
 
   Hotel createNewHotel(Hotel hotel);
+
+  public void deleteHotelById(int id)
 }

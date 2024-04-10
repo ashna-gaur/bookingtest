@@ -35,3 +35,5 @@ public class CityDto {
 
     // Getter and Setter methods for cityCentrelongitude
     public Double getCityCentrelongitude()
+
+}

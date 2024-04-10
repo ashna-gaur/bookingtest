@@ -50,4 +50,16 @@ class DefaultHotelService implements HotelService {
 
     return hotelRepository.save(hotel);
   }
+
+  @Override
+  public void deleteHotelById(int id) {
+        Optional<Hotel> optionalHotel = hotelRepository.findById(id);
+        if (optionalHotel.isPresent()) {
+            Hotel hotel = optionalHotel.get();
+            hotel.setDeleted(true);
+            hotelRepository.save(hotel);
+        } else {
+            throw new IllegalArgumentException("Hotel with ID " + id + " not found");
+        }
+    }
 }

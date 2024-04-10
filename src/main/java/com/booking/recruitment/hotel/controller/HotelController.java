@@ -35,4 +35,15 @@ public class HotelController {
   public HotelDto getHotelById(@PathVariable Long id) {
     return hotelService.getHotelById(id);
   }
+
+  @DeleteMapping("/{id}")
+  @ResponseStatus(HttpStatus.OK)
+    public ResponseEntity<?> deleteHotelById(@PathVariable("id") int id) {
+        try {
+            hotelService.deleteHotelById(id);
+            return new ResponseEntity<>("Hotel deleted successfully", HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 }
