@@ -29,4 +29,10 @@ public class HotelController {
   public Hotel createHotel(@RequestBody Hotel hotel) {
     return hotelService.createNewHotel(hotel);
   }
+
+  @GetMapping(value = "/{id}")
+  @ResponseStatus(HttpStatus.OK)
+  public HotelDto getHotelById(@PathVariable Long id) {
+    return hotelService.getHotelById(id);
+  }
 }

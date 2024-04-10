@@ -25,6 +25,17 @@ class DefaultHotelService implements HotelService {
   }
 
   @Override
+  public HotelDto getHotelById(Long id) {
+    Hotel hotel =  hotelRepository
+    .findById(id)
+    .orElseThrow(() -> new ElementNotFoundException("Could not find hotel with ID provided"));
+    CityDto cityDto = new CityDto(hotel.getCity().getId(), hotel.getCity().getName(), hotel.getCity().getCityCentrelongitude(),hotel.getCity().getCityCentreLatitude());
+    return new HotelDto(hotel.getId(),hotel.getName(), hotel.getRating(),
+    hotel.getLongitude(), hotel.getLatitude(), hotel.getAddress(),cityDto);
+
+  }
+
+  @Override
   public List<Hotel> getHotelsByCity(Long cityId) {
     return hotelRepository.findAll().stream()
         .filter((hotel) -> cityId.equals(hotel.getCity().getId()))

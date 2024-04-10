@@ -7,6 +7,8 @@ import java.util.List;
 public interface HotelService {
   List<Hotel> getAllHotels();
 
+  HotelDto getHotelById(Long id);
+
   List<Hotel> getHotelsByCity(Long cityId);
 
   Hotel createNewHotel(Hotel hotel);
